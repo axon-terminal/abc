@@ -232,3 +232,9 @@ cmake_info:
 	@echo SEPARATOR_CXXFLAGS $(CXXFLAGS) SEPARATOR_CXXFLAGS
 	@echo SEPARATOR_LIBS $(LIBS) SEPARATOR_LIBS
 	@echo SEPARATOR_SRC $(SRC) SEPARATOR_SRC
+
+install: $(PROG) lib$(PROG).so
+	install -d $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 lib$(PROG).so $(DESTDIR)$(PREFIX)/lib/
+	install -d $(DESTDIR)$(PREFIX)/bin/
+	install -m 644 $(PROG) $(DESTDIR)$(PREFIX)/bin/
